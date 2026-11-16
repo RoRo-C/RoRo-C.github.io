@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft 365 & Cloud Administration | Rochelle Clarke IT Portfolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            color: #ededed;
+            background-color: #050508;
+            line-height: 1.65;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 10%;
+            background: rgba(5, 5, 8, 0.92);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 119, 255, 0.25);
+        }
+        .logo {
+            font-size: 24px;
+            color: #ededed;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .logo span { color: #00abf0; }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00abf0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 18px;
+            border: 1px solid #00abf0;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #00abf0;
+            color: #050508;
+        }
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 120px 6% 70px;
+        }
+        .lab-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 119, 255, 0.3);
+            padding-bottom: 26px;
+        }
+        .lab-badge {
+            display: inline-block;
+            background: rgba(0, 171, 240, 0.14);
+            border: 1px solid rgba(0, 171, 240, 0.45);
+            color: #00abf0;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lab-header h1 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #ededed;
+            margin-bottom: 10px;
+        }
+        .lab-header p {
+            font-size: 16.5px;
+            color: #cccccc;
+        }
+        .section-block {
+            background: #0d0d14;
+            border: 1px solid rgba(0, 171, 240, 0.25);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 28px;
+        }
+        .section-block h2 {
+            font-size: 21px;
+            color: #ff77ff;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-block p, .section-block li {
+            color: #d6d6d6;
+            font-size: 15px;
+        }
+        .section-block ul, .section-block ol {
+            padding-left: 22px;
+            margin-top: 10px;
+        }
+        .section-block li { margin-bottom: 8px; }
+        .code-window {
+            background: #07070c;
+            border: 1px solid rgba(255, 119, 255, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 16px;
+        }
+        .code-bar {
+            background: #14141f;
+            padding: 8px 14px;
+            font-size: 12px;
+            color: #00abf0;
+            font-family: monospace;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13.5px;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        .kw { color: #00abf0; font-weight: bold; }
+        .str { color: #00ff88; }
+        .cmt { color: #888899; font-style: italic; }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 14px;
+        }
+        .mini-card {
+            background: #12121c;
+            border-left: 3px solid #00abf0;
+            padding: 16px;
+            border-radius: 6px;
+        }
+        .mini-card h4 {
+            color: #ededed;
+            margin-bottom: 6px;
+            font-size: 16px;
+        }
+        .ticket-item {
+            background: #12121c;
+            border: 1px solid rgba(0, 171, 240, 0.25);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+        .ticket-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .ticket-id {
+            color: #00abf0;
+            font-weight: 700;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .ticket-status {
+            background: rgba(0, 255, 136, 0.14);
+            color: #00ff88;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+        .spec-table th, .spec-table td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 14.5px;
+        }
+        .spec-table th {
+            color: #00abf0;
+            width: 32%;
+        }
+        .nav-footer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #777;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .lab-header h1 { font-size: 28px; }
+        }
+</style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Rochelle<span>.</span></a>
+        <a href="index.html#labs" class="back-btn"><i class='bx bx-arrow-back'></i> Back to Labs</a>
+    </header>
+
+    <main class="container">
+        <div class="lab-header">
+            <span class="lab-badge">M365 Admin Center • Entra ID • Exchange Online</span>
+            <h1>Microsoft 365 & Cloud Administration</h1>
+            <p>Cloud identity lifecycle management, MFA enforcement, shared mailbox permissions, and Exchange mail flow diagnostics.</p>
+        </div>
+
+        
+        <div class="section-block">
+            <h2><i class='bx bx-cloud-upload'></i> Microsoft 365 &amp; Entra ID Tenant Administration</h2>
+            <p>
+                Configured and administered a cloud workplace environment using the <strong>Microsoft 365 Admin Center</strong>,
+                <strong>Exchange Admin Center</strong>, and <strong>Microsoft Entra ID (Azure AD)</strong> to practice daily
+                Tier 1/Tier 2 cloud support tasks.
+            </p>
+            <div class="grid-2">
+                <div class="mini-card">
+                    <h4>User Lifecycle &amp; Licensing</h4>
+                    <p>Created cloud user identities, assigned Microsoft 365 Business Premium licenses, configured usage locations, and executed offboarding checklists (blocking sign-in, revoking active sessions, converting mailbox to shared).</p>
+                </div>
+                <div class="mini-card">
+                    <h4>Identity Security &amp; MFA</h4>
+                    <p>Enforced Multi-Factor Authentication (MFA) via Microsoft Authenticator, performed MFA resets for simulated lost devices, and configured Self-Service Password Reset (SSPR).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2><i class='bx bx-envelope'></i> Exchange Online &amp; Collaboration Setup</h2>
+            <ul>
+                <li><strong>Shared Mailboxes:</strong> Created <code>helpdesk@</code> and <code>info@</code> shared mailboxes and granted <em>Full Access</em> and <em>Send As</em> permissions to support staff without consuming extra licenses.</li>
+                <li><strong>Distribution Lists &amp; Microsoft 365 Groups:</strong> Built department mailing lists and Teams workspaces for cross-team collaboration.</li>
+                <li><strong>Mail Flow &amp; Quarantine Troubleshooting:</strong> Traced delayed messages using Exchange Message Trace and released legitimate emails caught by spam filtering policies.</li>
+            </ul>
+        </div>
+
+
+        <div class="nav-footer">
+            <a href="lab-tickets.html" class="back-btn">&larr; Prev: ITSM Ticket Resolution</a>
+            <a href="lab-hardware.html" class="back-btn">Next: Custom PC Builds & Repair &rarr;</a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Rochelle Clarke &bull; Desktop Support &amp; Helpdesk Portfolio
+    </footer>
+</body>
+</html>

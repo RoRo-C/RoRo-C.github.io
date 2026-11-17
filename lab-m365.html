@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft 365 & Cloud Administration | Rochelle Clarke IT Portfolio</title>
+    <title>Microsoft 365 &amp; Cloud Administration | Rochelle Clarke IT Portfolio</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -107,37 +107,29 @@
             color: #d6d6d6;
             font-size: 15px;
         }
-        .section-block ul, .section-block ol {
+        .section-block ul {
             padding-left: 22px;
             margin-top: 10px;
         }
         .section-block li { margin-bottom: 8px; }
-        .code-window {
-            background: #07070c;
-            border: 1px solid rgba(255, 119, 255, 0.3);
+        .screenshot-box {
+            margin-top: 20px;
+            border: 1px solid rgba(0, 171, 240, 0.35);
             border-radius: 8px;
             overflow: hidden;
-            margin-top: 16px;
+            background: #07070c;
         }
-        .code-bar {
+        .screenshot-box img {
+            width: 100%;
+            display: block;
+        }
+        .screenshot-caption {
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #9e9eb3;
             background: #14141f;
-            padding: 8px 14px;
-            font-size: 12px;
-            color: #00abf0;
-            font-family: monospace;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
-        pre {
-            padding: 16px;
-            overflow-x: auto;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13.5px;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-        .kw { color: #00abf0; font-weight: bold; }
-        .str { color: #00ff88; }
-        .cmt { color: #888899; font-style: italic; }
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -154,49 +146,6 @@
             color: #ededed;
             margin-bottom: 6px;
             font-size: 16px;
-        }
-        .ticket-item {
-            background: #12121c;
-            border: 1px solid rgba(0, 171, 240, 0.25);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 18px;
-        }
-        .ticket-top {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
-        .ticket-id {
-            color: #00abf0;
-            font-weight: 700;
-            font-family: monospace;
-            font-size: 14px;
-        }
-        .ticket-status {
-            background: rgba(0, 255, 136, 0.14);
-            color: #00ff88;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .spec-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 12px;
-        }
-        .spec-table th, .spec-table td {
-            text-align: left;
-            padding: 12px 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 14.5px;
-        }
-        .spec-table th {
-            color: #00abf0;
-            width: 32%;
         }
         .nav-footer {
             display: flex;
@@ -218,7 +167,7 @@
             .grid-2 { grid-template-columns: 1fr; }
             .lab-header h1 { font-size: 28px; }
         }
-</style>
+    </style>
 </head>
 <body>
     <header class="header">
@@ -228,12 +177,11 @@
 
     <main class="container">
         <div class="lab-header">
-            <span class="lab-badge">M365 Admin Center • Entra ID • Exchange Online</span>
-            <h1>Microsoft 365 & Cloud Administration</h1>
+            <span class="lab-badge">M365 Admin Center &bull; Entra ID &bull; Exchange Online</span>
+            <h1>Microsoft 365 &amp; Cloud Administration</h1>
             <p>Cloud identity lifecycle management, MFA enforcement, shared mailbox permissions, and Exchange mail flow diagnostics.</p>
         </div>
 
-        
         <div class="section-block">
             <h2><i class='bx bx-cloud-upload'></i> Microsoft 365 &amp; Entra ID Tenant Administration</h2>
             <p>
@@ -251,6 +199,10 @@
                     <p>Enforced Multi-Factor Authentication (MFA) via Microsoft Authenticator, performed MFA resets for simulated lost devices, and configured Self-Service Password Reset (SSPR).</p>
                 </div>
             </div>
+            <div class="screenshot-box">
+                <img src="screen-m365.jpg" alt="Microsoft 365 Admin Center Active Users and Entra ID MFA">
+                <div class="screenshot-caption">Microsoft 365 Admin Center — Active user licensing, shared mailbox delegation, and Entra ID Multi-Factor Authentication status</div>
+            </div>
         </div>
 
         <div class="section-block">
@@ -262,10 +214,9 @@
             </ul>
         </div>
 
-
         <div class="nav-footer">
             <a href="lab-tickets.html" class="back-btn">&larr; Prev: ITSM Ticket Resolution</a>
-            <a href="lab-hardware.html" class="back-btn">Next: Custom PC Builds & Repair &rarr;</a>
+            <a href="lab-hardware.html" class="back-btn">Next: Custom PC Builds &amp; Repair &rarr;</a>
         </div>
     </main>
 

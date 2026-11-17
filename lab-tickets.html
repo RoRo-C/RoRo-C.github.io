@@ -107,16 +107,112 @@
             color: #d6d6d6;
             font-size: 15px;
         }
-        .screenshot-box {
+        /* Clean Built-in ITSM Dashboard UI Mockup */
+        .itsm-window {
             margin-top: 20px;
+            background: #10141d;
             border: 1px solid rgba(0, 171, 240, 0.35);
             border-radius: 8px;
             overflow: hidden;
-            background: #07070c;
         }
-        .screenshot-box img {
+        .itsm-topbar {
+            background: #161c28;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .itsm-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            color: #ededed;
+        }
+        .itsm-brand i {
+            color: #00abf0;
+            font-size: 20px;
+        }
+        .itsm-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13.5px;
+            color: #d6d6d6;
+            font-weight: 500;
+        }
+        .itsm-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00abf0, #ff77ff);
+            color: #050508;
+            font-weight: 700;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .itsm-filters {
+            padding: 12px 18px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: #0d1017;
+        }
+        .filter-pill {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: rgba(0, 171, 240, 0.14);
+            color: #00abf0;
+            border: 1px solid rgba(0, 171, 240, 0.3);
+        }
+        .filter-pill.green {
+            background: rgba(0, 255, 136, 0.12);
+            color: #00ff88;
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+        .itsm-table-wrap {
+            overflow-x: auto;
+        }
+        .itsm-table {
             width: 100%;
-            display: block;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .itsm-table th {
+            text-align: left;
+            padding: 11px 16px;
+            color: #9e9eb3;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: #131823;
+        }
+        .itsm-table td {
+            padding: 11px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d6d6d6;
+        }
+        .itsm-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .t-id { color: #00abf0; font-family: monospace; font-weight: 600; }
+        .prio-high { color: #ff6b6b; font-weight: 600; }
+        .prio-med { color: #ffbd2e; font-weight: 600; }
+        .status-pill {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 12px;
+            font-size: 11.5px;
+            font-weight: 600;
+            background: rgba(0, 255, 136, 0.14);
+            color: #00ff88;
         }
         .screenshot-caption {
             padding: 10px 14px;
@@ -194,8 +290,80 @@
                 desktop support scenarios. Every ticket followed a structured methodology: <strong>Identify &amp; Verify User &rarr;
                 Reproduce &amp; Isolate Scope &rarr; Apply Fix &rarr; Test with End-User &rarr; Document Root Cause</strong>.
             </p>
-            <div class="screenshot-box">
-                <img src="screen-tickets.jpg" alt="ITSM Service Desk Ticket Queue Dashboard">
+
+            <div class="itsm-window">
+                <div class="itsm-topbar">
+                    <div class="itsm-brand">
+                        <i class='bx bx-support'></i>
+                        <span>IT Service Desk Queue &mdash; Resolved Incidents</span>
+                    </div>
+                    <div class="itsm-user">
+                        <i class='bx bx-bell' style="font-size: 17px; color: #9e9eb3;"></i>
+                        <span class="itsm-avatar">RC</span>
+                        <span>R. Clarke</span>
+                    </div>
+                </div>
+                <div class="itsm-filters">
+                    <span class="filter-pill">Queue: Tier 1 &amp; Tier 2</span>
+                    <span class="filter-pill green">Status: Resolved &amp; Verified (284)</span>
+                    <span class="filter-pill">SLA Compliance: 99.3%</span>
+                </div>
+                <div class="itsm-table-wrap">
+                    <table class="itsm-table">
+                        <thead>
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Subject / Incident</th>
+                                <th>Assigned To</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Resolution Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="t-id">INC-1042</td>
+                                <td>APIPA 169.254.x.x / No Intranet Access</td>
+                                <td>R. Clarke</td>
+                                <td class="prio-high">High (P2)</td>
+                                <td><span class="status-pill">Resolved</span></td>
+                                <td>Flushed DNS &amp; renewed DHCP lease via ipconfig</td>
+                            </tr>
+                            <tr>
+                                <td class="t-id">INC-1189</td>
+                                <td>Recurring Active Directory Account Lockout</td>
+                                <td>R. Clarke</td>
+                                <td class="prio-med">Medium (P3)</td>
+                                <td><span class="status-pill">Resolved</span></td>
+                                <td>Traced Event ID 4740; cleared Credential Manager</td>
+                            </tr>
+                            <tr>
+                                <td class="t-id">INC-1264</td>
+                                <td>Finance Network Print Queue Stuck</td>
+                                <td>R. Clarke</td>
+                                <td class="prio-med">Medium (P3)</td>
+                                <td><span class="status-pill">Resolved</span></td>
+                                <td>Cleared spool\PRINTERS &amp; restarted Print Spooler</td>
+                            </tr>
+                            <tr>
+                                <td class="t-id">INC-1308</td>
+                                <td>Shared Drive Access Denied (NTFS)</td>
+                                <td>R. Clarke</td>
+                                <td class="prio-med">Medium (P3)</td>
+                                <td><span class="status-pill">Resolved</span></td>
+                                <td>Added user to GRP_Operations security group</td>
+                            </tr>
+                            <tr>
+                                <td class="t-id">INC-1341</td>
+                                <td>M365 Authenticator MFA Device Reset</td>
+                                <td>R. Clarke</td>
+                                <td class="prio-high">High (P2)</td>
+                                <td><span class="status-pill">Resolved</span></td>
+                                <td>Verified identity &amp; required re-registration in Entra ID</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="screenshot-caption">ITSM Service Desk Queue — Tracking priority levels, resolution notes, and SLA verification across Tier 1 &amp; Tier 2 incidents</div>
             </div>
         </div>

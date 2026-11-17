@@ -252,13 +252,37 @@
             display: grid;
             grid-template-columns: 2fr 5fr;
             grid-gap: 60px;
+            align-items: center;
             grid-template-areas: "imageSect infoSect" "skillSect skillSect";
+        }
+
+        /* Organic Liquid Morphing Portrait Frame */
+        @keyframes liquidMorph {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            33% {
+                border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+            }
+            66% {
+                border-radius: 70% 30% 50% 50% / 30% 50% 50% 70%;
+            }
+        }
+
+        @keyframes liquidMorphReverse {
+            0%, 100% {
+                border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+            }
+            50% {
+                border-radius: 65% 35% 40% 60% / 55% 40% 60% 45%;
+            }
         }
 
         .about_content .imageSection {
             position: relative;
-            min-width: 260px;
-            height: 360px;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
         }
 
         .imageSection img {
@@ -268,7 +292,10 @@
             object-position: center top;
             position: relative;
             z-index: 2;
-            border-radius: 6px;
+            border: 3px solid #00abf0;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: liquidMorph 8s ease-in-out infinite;
+            box-shadow: 0 0 28px rgba(0, 171, 240, 0.35);
             background: #12121a;
         }
 
@@ -276,8 +303,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, #101524, #1b1026);
-            border: 1px solid rgba(0, 171, 240, 0.4);
-            border-radius: 6px;
+            border: 3px solid #00abf0;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: liquidMorph 8s ease-in-out infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -297,13 +325,13 @@
         .about_content .imageSection::after {
             position: absolute;
             content: "";
-            width: 100%;
-            height: 100%;
-            outline: 3px solid #ff77ff;
-            top: 15px;
-            left: 15px;
-            border-radius: 6px;
+            inset: -8px;
+            border: 2px solid #ff77ff;
+            border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+            animation: liquidMorphReverse 10s ease-in-out infinite;
+            box-shadow: 0 0 24px rgba(255, 119, 255, 0.3);
             z-index: 1;
+            pointer-events: none;
         }
 
         .infoSection h2,
@@ -652,7 +680,8 @@
                 grid-template-areas: "imageSect" "infoSect" "skillSect";
             }
             .about_content .imageSection {
-                max-width: 320px;
+                width: 260px;
+                height: 260px;
                 margin: 0 auto;
             }
             .skillSection,

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom PC Builds &amp; Hardware Repair | Rochelle Clarke IT Portfolio</title>
+    <title>Rochelle Clarke | Desktop Support &amp; Helpdesk Portfolio</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,19 +15,22 @@
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
         }
+
         html { scroll-behavior: smooth; }
+
         body {
             color: #ededed;
             background-color: #050508;
-            line-height: 1.65;
+            overflow-x: hidden;
         }
+
         .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 18px 10%;
-            background: rgba(5, 5, 8, 0.92);
+            padding: 20px 10%;
+            background: rgba(5, 5, 8, 0.9);
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
@@ -33,191 +38,949 @@
             z-index: 100;
             border-bottom: 1px solid rgba(255, 119, 255, 0.25);
         }
+
         .logo {
-            font-size: 24px;
+            font-size: 26px;
             color: #ededed;
             text-decoration: none;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
+
         .logo span { color: #00abf0; }
-        .back-btn {
+
+        .navbar a {
+            font-size: 16px;
+            color: #ededed;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 30px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active { color: #00abf0; }
+
+        .home {
+            min-height: 100vh;
+            background: radial-gradient(circle at 80% 25%, rgba(0, 171, 240, 0.14), transparent 45%),
+                        radial-gradient(circle at 20% 80%, rgba(255, 119, 255, 0.12), transparent 45%),
+                        #050508;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 120px 10% 80px;
+            position: relative;
+        }
+
+        .home-content {
+            max-width: 630px;
+            z-index: 2;
+        }
+
+        .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            background: rgba(0, 171, 240, 0.12);
+            border: 1px solid rgba(0, 171, 240, 0.4);
+            color: #00abf0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff88;
+        }
+
+        .home-content h1 {
+            font-size: 50px;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .home-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ff77ff;
+            margin-top: 8px;
+        }
+
+        .home-content p {
+            font-size: 16px;
+            line-height: 1.65;
+            margin: 20px 0 32px;
+            color: #d6d6d6;
+        }
+
+        .home-content .btn-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .btn-box a {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 13px 28px;
+            background: #00abf0;
+            border: 2px solid #ff77ff;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #050508;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .btn-box a:hover {
+            color: #00abf0;
+            background: transparent;
+        }
+
+        .btn-box a:nth-child(2) {
+            background: transparent;
+            color: #00abf0;
+        }
+
+        .btn-box a:nth-child(2):hover {
+            background: #00abf0;
+            color: #050508;
+        }
+
+        .home-sci {
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .home-sci a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 42px;
+            height: 42px;
+            background: transparent;
+            border: 2px solid #ff77ff;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #00abf0;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .home-sci a:hover {
+            background: #00abf0;
+            color: #050508;
+            border-color: #00abf0;
+            transform: translateY(-3px);
+        }
+
+        .hero-terminal {
+            width: 100%;
+            max-width: 430px;
+            background: #0d0d14;
+            border: 1px solid rgba(0, 171, 240, 0.4);
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(0, 171, 240, 0.12);
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .terminal-bar {
+            background: #161622;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 119, 255, 0.25);
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        .terminal-title {
+            margin-left: 8px;
+            font-size: 12px;
+            color: #9e9eb3;
+            font-family: monospace;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #d6d6d6;
+        }
+
+        .cmd { color: #00abf0; font-weight: bold; }
+        .out-ok { color: #00ff88; }
+        .out-highlight { color: #ff77ff; }
+
+        .about_container {
+            width: 100%;
+            padding: 90px 10%;
+            background: #08080d;
+        }
+
+        .imageSection { grid-area: imageSect; }
+        .infoSection { grid-area: infoSect; }
+        .skillSection { grid-area: skillSect; }
+
+        .about_container .about_content {
+            display: grid;
+            grid-template-columns: 2fr 5fr;
+            grid-gap: 60px;
+            grid-template-areas: "imageSect infoSect" "skillSect skillSect";
+        }
+
+        .about_content .imageSection {
+            position: relative;
+            min-width: 260px;
+            height: 360px;
+        }
+
+        .imageSection img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            position: relative;
+            z-index: 2;
+            border-radius: 6px;
+            background: #12121a;
+        }
+
+        .avatar-fallback {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #101524, #1b1026);
+            border: 1px solid rgba(0, 171, 240, 0.4);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-fallback i {
+            font-size: 72px;
+            color: #00abf0;
+            margin-bottom: 12px;
+        }
+
+        .about_content .imageSection::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            outline: 3px solid #ff77ff;
+            top: 15px;
+            left: 15px;
+            border-radius: 6px;
+            z-index: 1;
+        }
+
+        .infoSection h2,
+        .title-text h2 {
+            color: #ededed;
+            font-size: 30px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .infoSection h2::before,
+        .title-text h2::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 112%;
+            left: 0;
+            background-color: #ff77ff;
+        }
+
+        .infoSection h2::after,
+        .title-text h2::after {
+            content: "";
+            position: absolute;
+            width: 45%;
+            height: 3px;
+            top: calc(112% - 1px);
+            left: 0;
+            background-color: #ff77ff;
+        }
+
+        .infoSection h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #00abf0;
+            padding: 18px 0 14px;
+        }
+
+        .infoSection p {
+            color: #d6d6d6;
+            font-size: 15.5px;
+            line-height: 1.65;
+            padding-bottom: 12px;
+        }
+
+        .personalInfo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 12px 24px;
+            margin-top: 14px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(255, 119, 255, 0.4);
+        }
+
+        .personalInfo div {
+            display: flex;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .personalInfo div span:first-child {
+            color: #00abf0;
+            font-weight: 600;
+        }
+
+        .infoSection button {
+            padding: 11px 24px;
+            border: 2px solid #ff77ff;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: transparent;
+            color: #00abf0;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 22px;
+        }
+
+        .infoSection button:hover {
+            background-color: #00abf0;
+            color: #050508;
+            border-color: #00abf0;
+        }
+
+        .skillSection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 24px 70px;
+            padding-top: 10px;
+        }
+
+        .skillSection .subject {
+            font-size: 14.5px;
+            font-weight: 500;
+            color: #ededed;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .progress_bar {
+            width: 100%;
+            height: 15px;
+            background-color: #1a1a24;
+            padding: 3px 5px;
+            border: 1px solid #2e2e3d;
+            border-radius: 15px;
+        }
+
+        .progress_line {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #00abf0, #ff77ff);
+            border-radius: 15px;
+        }
+
+        .progress_line::after {
+            position: absolute;
+            content: attr(value);
+            top: -30px;
+            right: 0;
+            color: #00abf0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .title-text {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title-text p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #00abf0;
+            padding-top: 18px;
+        }
+
+        #labs {
+            width: 100%;
+            padding: 90px 10%;
+            background: #050508;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .lab-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+        }
+
+        .lab-card {
+            background: #0d0d14;
+            border: 1px solid rgba(0, 171, 240, 0.3);
+            border-radius: 12px;
+            padding: 28px;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff77ff;
+            box-shadow: 0 10px 28px rgba(255, 119, 255, 0.15);
+        }
+
+        .lab-icon {
+            font-size: 36px;
+            color: #00abf0;
+            margin-bottom: 12px;
+        }
+
+        .lab-card h3 {
+            font-size: 20px;
+            color: #ededed;
+            margin-bottom: 6px;
+        }
+
+        .lab-tag {
+            display: inline-block;
+            font-size: 13px;
+            color: #ff77ff;
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .lab-card p {
+            font-size: 15px;
+            color: #cccccc;
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .lab-cta {
+            color: #00abf0;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .lab-card:hover .lab-cta {
+            color: #ff77ff;
+        }
+
+        #certifications {
+            width: 100%;
+            padding: 90px 10%;
+            background: #08080d;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .cert-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #0d0d14;
+            border-left: 4px solid #00abf0;
+            border-radius: 8px;
+            padding: 22px;
+            transition: 0.3s;
+        }
+
+        .cert-card:hover {
+            border-left-color: #ff77ff;
+            background: #13131d;
+        }
+
+        .cert-card i {
+            font-size: 30px;
+            color: #ff77ff;
+            margin-top: 2px;
+        }
+
+        .cert-card h4 {
+            font-size: 17px;
+            color: #ededed;
+            margin-bottom: 4px;
+        }
+
+        .cert-card p {
+            font-size: 14px;
+            color: #b5b5b5;
+            line-height: 1.5;
+        }
+
+        #contact {
+            width: 100%;
+            padding: 90px 10% 60px;
+            text-align: center;
+            background: #050508;
+        }
+
+        .contact-box {
+            max-width: 760px;
+            margin: 0 auto;
+            background: #0d0d14;
+            border: 1px solid rgba(255, 119, 255, 0.35);
+            border-radius: 12px;
+            padding: 36px 28px;
+        }
+
+        .contact-box p {
+            font-size: 16px;
+            color: #d6d6d6;
+            line-height: 1.65;
+            margin-bottom: 26px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border: 2px solid #00abf0;
+            border-radius: 8px;
             color: #00abf0;
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
-            padding: 8px 18px;
-            border: 1px solid #00abf0;
-            border-radius: 8px;
             transition: 0.3s;
+            cursor: pointer;
+            background: transparent;
         }
-        .back-btn:hover {
+
+        .contact-btn:hover {
             background: #00abf0;
             color: #050508;
         }
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 120px 6% 70px;
-        }
-        .lab-header {
-            margin-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 119, 255, 0.3);
-            padding-bottom: 26px;
-        }
-        .lab-badge {
-            display: inline-block;
-            background: rgba(0, 171, 240, 0.14);
-            border: 1px solid rgba(0, 171, 240, 0.45);
-            color: #00abf0;
-            padding: 5px 14px;
-            border-radius: 20px;
+
+        .copy-toast {
+            margin-top: 14px;
             font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            color: #00ff88;
+            min-height: 20px;
         }
-        .lab-header h1 {
-            font-size: 38px;
-            font-weight: 700;
-            color: #ededed;
-            margin-bottom: 10px;
-        }
-        .lab-header p {
-            font-size: 16.5px;
-            color: #cccccc;
-        }
-        .section-block {
-            background: #0d0d14;
-            border: 1px solid rgba(0, 171, 240, 0.25);
-            border-radius: 12px;
-            padding: 28px;
-            margin-bottom: 28px;
-        }
-        .section-block h2 {
-            font-size: 21px;
-            color: #ff77ff;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-block p, .section-block li {
-            color: #d6d6d6;
-            font-size: 15px;
-        }
-        .section-block ul {
-            padding-left: 22px;
-            margin-top: 10px;
-        }
-        .section-block li { margin-bottom: 8px; }
-        .screenshot-box {
-            margin-top: 20px;
-            border: 1px solid rgba(0, 171, 240, 0.35);
-            border-radius: 8px;
-            overflow: hidden;
-            background: #07070c;
-        }
-        .screenshot-box img {
-            width: 100%;
-            display: block;
-        }
-        .screenshot-caption {
-            padding: 10px 14px;
-            font-size: 13px;
-            color: #9e9eb3;
-            background: #14141f;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .spec-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 12px;
-        }
-        .spec-table th, .spec-table td {
-            text-align: left;
-            padding: 12px 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 14.5px;
-        }
-        .spec-table th {
-            color: #00abf0;
-            width: 32%;
-        }
-        .nav-footer {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
+
         footer {
             text-align: center;
             padding: 24px;
             color: #777;
             font-size: 13px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: #050508;
         }
-        @media (max-width: 768px) {
-            .lab-header h1 { font-size: 28px; }
+
+        @media (max-width: 1068px) {
+            .home {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 110px;
+            }
+            .hero-terminal { max-width: 100%; }
+            .about_container .about_content {
+                grid-template-areas: "imageSect infoSect" "skillSect skillSect";
+            }
+        }
+
+        @media (max-width: 868px) {
+            .about_container .about_content {
+                grid-template-columns: 1fr;
+                grid-template-areas: "imageSect" "infoSect" "skillSect";
+            }
+            .about_content .imageSection {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .skillSection,
+            .labs-grid,
+            .cert-grid { grid-template-columns: 1fr; }
+            .home-content h1 { font-size: 38px; }
+        }
+
+        @media (max-width: 668px) {
+            .header { padding: 16px 5%; }
+            .navbar a {
+                margin-left: 12px;
+                font-size: 13.5px;
+            }
+            .personalInfo { grid-template-columns: 1fr; }
         }
     </style>
 </head>
+
 <body>
+
     <header class="header">
-        <a href="index.html" class="logo">Rochelle<span>.</span></a>
-        <a href="index.html#labs" class="back-btn"><i class='bx bx-arrow-back'></i> Back to Labs</a>
+        <a href="#home" class="logo">Rochelle<span>.</span></a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#labs">Labs</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <main class="container">
-        <div class="lab-header">
-            <span class="lab-badge">Component Assembly &bull; UEFI/BIOS &bull; Storage Upgrades</span>
-            <h1>Custom PC Builds &amp; Hardware Repair</h1>
-            <p>Hands-on hardware assembly, thermal testing, OS deployment, and internal SSD/HDD upgrades across desktops and consoles.</p>
-        </div>
-
-        <div class="section-block">
-            <h2><i class='bx bx-desktop'></i> Custom Workstation Build &amp; Hardware Architecture</h2>
+    <section class="home" id="home">
+        <div class="home-content">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Open to Desktop Support &amp; Helpdesk Roles
+            </div>
+            <h1>Hi, I'm Rochelle Clarke</h1>
+            <h3>Desktop Support Technician</h3>
             <p>
-                Planned, assembled, and stress-tested a full-tower workstation from bare components—verifying motherboard QVL compatibility,
-                airflow/thermal curves, UEFI/BIOS firmware updates, and clean Windows 11 OS deployment.
+                CompTIA A+ certified (Core 1) IT Support Specialist with hands-on experience in Windows Server,
+                Active Directory, Microsoft 365 administration, hardware diagnostics, and Tier 1/Tier 2 ticket
+                resolution. Focused on resolving technical bottlenecks and keeping end-users productive.
             </p>
-            <table class="spec-table">
-                <tr><th>Processor (CPU)</th><td>AMD Ryzen 7 7700X (8-Core / 16-Thread, AM5)</td></tr>
-                <tr><th>CPU Cooling</th><td>be quiet! Pure Loop 3 LX 360mm All-In-One Liquid Cooler</td></tr>
-                <tr><th>Motherboard</th><td>MSI PRO B650-S WiFi ATX (DDR5, PCIe 4.0, BIOS Flashback)</td></tr>
-                <tr><th>Memory (RAM)</th><td>32GB (2x16GB) Corsair Vengeance RGB DDR5-6000 CL30 (EXPO Enabled)</td></tr>
-                <tr><th>Graphics (GPU)</th><td>ASUS PRIME Radeon RX 9060 XT 16GB</td></tr>
-                <tr><th>Storage Array</th><td>Crucial P3 Plus 1TB + 2TB NVMe M.2 SSDs &amp; 4TB Seagate BarraCuda HDD</td></tr>
-                <tr><th>Power &amp; Chassis</th><td>Corsair RM750e 750W 80+ Gold Modular PSU in HYTE Y70 Touch Infinite</td></tr>
-                <tr><th>Operating System</th><td>Windows 11 + Oracle VM VirtualBox Lab Host</td></tr>
-            </table>
-            <div class="screenshot-box">
-                <img src="screen-hardware.jpg" alt="UEFI BIOS Hardware Monitor and Thermal Diagnostics">
-                <div class="screenshot-caption">UEFI BIOS Hardware Monitor — Verifying DDR5-6000 memory profile, NVMe storage detection, and 360mm AIO thermal telemetry</div>
+            <div class="btn-box">
+                <a href="#labs">View Hands-On Labs</a>
+                <a href="#contact">Let's Talk</a>
+            </div>
+
+            <div class="home-sci">
+                <a href="https://www.linkedin.com/in/rochelle-clarke" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/RoRo-C" target="_blank" rel="noopener noreferrer" title="GitHub Lab Documentation"><i class='bx bxl-github'></i></a>
+                <a href="mailto:rochellecdev@gmail.com" title="Email Me"><i class='bx bx-envelope'></i></a>
             </div>
         </div>
 
-        <div class="section-block">
-            <h2><i class='bx bx-wrench'></i> Break/Fix Diagnostics &amp; Storage Upgrades</h2>
-            <ul>
-                <li><strong>Console &amp; Laptop Drive Upgrades:</strong> Performed physical teardown, 2.5-inch SATA SSD replacement, and full system firmware reinstallation via USB recovery media on PlayStation 4 and Xbox One S systems, plus full drive rollback diagnostics.</li>
-                <li><strong>POST &amp; Thermal Troubleshooting:</strong> Diagnosed boot failures using motherboard EZ Debug LEDs, reseated DIMMs/GPUs, verified XMP/EXPO memory stability, and monitored CPU/GPU idle and load temperatures.</li>
-                <li><strong>Peripheral &amp; Printer Maintenance:</strong> Configured network laser printers (Canon imageCLASS series), resolved driver conflicts, and set up multi-monitor display scaling.</li>
-            </ul>
+        <div class="hero-terminal">
+            <div class="terminal-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">Administrator: Windows PowerShell</span>
+            </div>
+            <div class="terminal-body">
+                <div><span class="cmd">PS C:\Support&gt;</span> Get-TechProfile -Name "Rochelle"</div>
+                <div>Role&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="out-highlight">Desktop Support / Helpdesk</span></div>
+                <div>CompTIA_A+&nbsp;&nbsp;&nbsp;: <span class="out-ok">Core 1 Passed | Core 2 Active</span></div>
+                <div>TicketsSolved: <span class="out-ok">284+ (Tier 1 &amp; Tier 2)</span></div>
+                <div>HomeLab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="out-highlight">WinServer, AD DS, DNS, M365</span></div>
+                <br>
+                <div><span class="cmd">PS C:\Support&gt;</span> Test-NetConnection -Target "ReadyToHire"</div>
+                <div>PingSucceeded: <span class="out-ok">True (0ms latency)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about_container">
+            <div class="about_content">
+                <section class="imageSection" id="img-wrapper">
+                    <img src="profile.jpg" alt="Rochelle Clarke"
+                         onerror="this.style.display='none'; document.getElementById('fallback-box').style.display='flex';">
+                    <div class="avatar-fallback" id="fallback-box" style="display: none;">
+                        <i class='bx bx-user-circle'></i>
+                        <strong style="color:#ededed;">Rochelle Clarke</strong>
+                        <span style="font-size:13px; color:#00abf0;">IT Desktop Support</span>
+                    </div>
+                </section>
+
+                <section class="infoSection">
+                    <span>
+                        <h2>About Me</h2>
+                    </span>
+                    <h1>Tier 1 / Tier 2 IT Support &amp; Systems Administration</h1>
+                    <p>
+                        My passion for technology began with building custom desktop PCs, diagnosing hardware faults,
+                        and understanding how operating systems and networks communicate under the hood. While I
+                        initially explored frontend development and cybersecurity, I found my stride in hands-on
+                        infrastructure, endpoint troubleshooting, and helping end-users solve real technical problems.
+                    </p>
+                    <p>
+                        To bridge theory with enterprise support workflows, I built a virtualized Windows Server and
+                        Active Directory home lab, administered cloud tenants in Microsoft 365 and Azure, and resolved
+                        over 280 realistic helpdesk tickets covering DNS/DHCP issues, account lockouts, NTFS permissions,
+                        VPN connectivity, and printer deployments.
+                    </p>
+
+                    <div class="personalInfo">
+                        <div><span>Name:</span><span>Rochelle Clarke</span></div>
+                        <div><span>Location:</span><span>St. Thomas / London, ON</span></div>
+                        <div><span>Email:</span><span>rochellecdev@gmail.com</span></div>
+                        <div><span>Focus:</span><span>Desktop &amp; Helpdesk Support</span></div>
+                    </div>
+
+                    <div class="button">
+                        <a href="Rochelle Clarke_It DESKTOP RES.docx" download>
+                            <button>Download IT Resume</button>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="skillSection">
+                    <div class="skill">
+                        <div class="subject">Windows 10/11 &amp; Hardware Diagnostics</div>
+                        <div class="progress_bar">
+                            <div class="progress_line" value="95%" style="max-width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="subject">Active Directory, DNS, DHCP &amp; Group Policy</div>
+                        <div class="progress_bar">
+                            <div class="progress_line" value="88%" style="max-width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="subject">Microsoft 365 &amp; Azure Entra ID Admin</div>
+                        <div class="progress_bar">
+                            <div class="progress_line" value="85%" style="max-width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill">
+                        <div class="subject">ITSM Ticketing, PowerShell &amp; Documentation</div>
+                        <div class="progress_bar">
+                            <div class="progress_line" value="90%" style="max-width: 90%"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="labs">
+        <div class="title-text">
+            <span>
+                <h2>HANDS-ON LABS</h2>
+            </span>
+            <p>Click Any Lab Card to Explore Full Documentation &amp; Walkthroughs</p>
         </div>
 
-        <div class="nav-footer">
-            <a href="lab-m365.html" class="back-btn">&larr; Prev: Microsoft 365 Admin</a>
-            <a href="index.html#labs" class="back-btn">Back to Portfolio &rarr;</a>
+        <div class="labs-grid">
+            <a href="lab-ad.html" class="lab-card-link">
+                <div class="lab-card">
+                    <div>
+                        <div class="lab-icon"><i class='bx bx-server'></i></div>
+                        <h3>Enterprise Active Directory Home Lab</h3>
+                        <span class="lab-tag">VirtualBox &bull; Windows Server 2022 &bull; PowerShell</span>
+                        <p>
+                            Deployed a multi-VM domain environment simulating a corporate network. Configured Active Directory
+                            Domain Services (AD DS), DNS, DHCP, Organizational Units (OUs), and Group Policy Objects (GPOs),
+                            automating user onboarding and password resets via PowerShell scripts.
+                        </p>
+                    </div>
+                    <span class="lab-cta">Open Lab Walkthrough &rarr;</span>
+                </div>
+            </a>
+
+            <a href="lab-tickets.html" class="lab-card-link">
+                <div class="lab-card">
+                    <div>
+                        <div class="lab-icon"><i class='bx bx-support'></i></div>
+                        <h3>ITSM Helpdesk Ticket Resolution</h3>
+                        <span class="lab-tag">284+ Tickets Resolved &bull; SLA Management</span>
+                        <p>
+                            Diagnosed, documented, and resolved over 284 simulated Tier 1 and Tier 2 support tickets. Handled
+                            account lockouts, NTFS file permissions, printer spooler crashes, Outlook profile corruption,
+                            network connectivity drops, and proper escalation workflows.
+                        </p>
+                    </div>
+                    <span class="lab-cta">View Ticket Case Studies &rarr;</span>
+                </div>
+            </a>
+
+            <a href="lab-m365.html" class="lab-card-link">
+                <div class="lab-card">
+                    <div>
+                        <div class="lab-icon"><i class='bx bx-cloud'></i></div>
+                        <h3>Microsoft 365 &amp; Cloud Administration</h3>
+                        <span class="lab-tag">M365 Admin Center &bull; Entra ID &bull; MFA</span>
+                        <p>
+                            Provisioned cloud user accounts, assigned licenses, configured shared mailboxes and distribution
+                            lists, and enforced Multi-Factor Authentication (MFA) and conditional access policies in a
+                            Microsoft 365 Business Premium environment.
+                        </p>
+                    </div>
+                    <span class="lab-cta">Open Cloud Lab Guide &rarr;</span>
+                </div>
+            </a>
+
+            <a href="lab-hardware.html" class="lab-card-link">
+                <div class="lab-card">
+                    <div>
+                        <div class="lab-icon"><i class='bx bx-chip'></i></div>
+                        <h3>Custom PC Builds &amp; Hardware Repair</h3>
+                        <span class="lab-tag">Component Assembly &bull; BIOS &bull; Storage Upgrades</span>
+                        <p>
+                            Built and benchmarked custom desktop workstations from bare components (AMD Ryzen / DDR5 / NVMe /
+                            AIO liquid cooling). Performed OS imaging, BIOS/UEFI updates, driver troubleshooting, thermal
+                            diagnostics, and internal SSD/HDD upgrades on PCs and consoles.
+                        </p>
+                    </div>
+                    <span class="lab-cta">View Build Specs &amp; Repairs &rarr;</span>
+                </div>
+            </a>
         </div>
-    </main>
+    </section>
+
+    <section id="certifications">
+        <div class="title-text">
+            <span>
+                <h2>CERTIFICATIONS</h2>
+            </span>
+            <p>Verified Credentials &amp; Technical Training</p>
+        </div>
+
+        <div class="cert-grid">
+            <div class="cert-card">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                    <h4>CompTIA A+ Certification</h4>
+                    <p>Core 1 (220-1201) Passed &bull; Core 2 (220-1202) In Progress</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                    <h4>Google IT Support Professional Certificate</h4>
+                    <p>Networking, OS Administration, System Administration &amp; IT Security</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                    <h4>Google Cybersecurity Certificate</h4>
+                    <p>Linux, SQL, SIEM Tools, Incident Response &amp; Network Defense</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <i class='bx bxs-badge-check'></i>
+                <div>
+                    <h4>Harvard CS &amp; Cybersecurity Certificates</h4>
+                    <p>Computer Science Fundamentals, Information Security &amp; System Logic</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="title-text">
+            <span>
+                <h2>CONTACT</h2>
+            </span>
+            <p>Ready to Support Your Team</p>
+        </div>
+
+        <div class="contact-box">
+            <p>
+                I am actively seeking entry-level <strong>Desktop Support Technician</strong>, <strong>Helpdesk Analyst</strong>,
+                or <strong>IT Support Specialist</strong> opportunities in St. Thomas, London, or remote environments.
+            </p>
+            <div class="contact-links">
+                <button class="contact-btn" onclick="copyEmail()"><i class='bx bx-copy'></i> Copy Email: rochellecdev@gmail.com</button>
+                <a href="https://www.linkedin.com/in/rochelle-clarke" target="_blank" rel="noopener noreferrer" class="contact-btn"><i class='bx bxl-linkedin'></i> LinkedIn Profile</a>
+                <a href="https://github.com/RoRo-C" target="_blank" rel="noopener noreferrer" class="contact-btn"><i class='bx bxl-github'></i> GitHub Labs</a>
+            </div>
+            <div class="copy-toast" id="copy-toast"></div>
+        </div>
+    </section>
 
     <footer>
         &copy; 2026 Rochelle Clarke &bull; Desktop Support &amp; Helpdesk Portfolio
     </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        function copyEmail() {
+            navigator.clipboard.writeText('rochellecdev@gmail.com').then(() => {
+                const toast = document.getElementById('copy-toast');
+                toast.textContent = 'Email copied to clipboard: rochellecdev@gmail.com';
+                setTimeout(() => { toast.textContent = ''; }, 3500);
+            });
+        }
+    </script>
 </body>
+
 </html>
